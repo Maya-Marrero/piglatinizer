@@ -7,9 +7,8 @@
 // Document Ready Function. All of your jQuery should go in here. 
 $( document ).ready(function() {
   $("#submit").click(function(){
-  	var input= $('input').val();
-  	alert(wordToPigLatin(input));
-  
+  	//var input= $('input').val();
+  	sentenceToPigLatin()
   	
   });
 
@@ -20,8 +19,31 @@ $( document ).ready(function() {
 
 // Create the wordToPigLatin function that takes a word as a parameter and returns a transfromed word. 
 
-function wordToPigLatin(word){
-	return word + "ay"
+
+
+function sentenceToPigLatin(){
+    console.log("hello");
+    var message=$("input").val();
+    
+    var split=message.split(' ');
+   
+    for(var count=0; count<split.length; count=count+1){
+        var pigMessage= ay(split[count]);
+        $("#message").append(pigMessage)
+       
+    }
+}
+
+
+function ay(word){
+	var firstLetter=word.slice(0,1);
+var lastLetter=word.slice(1,word.length);
+if(firstLetter=='a'||firstLetter=='e'||firstLetter=='i'||firstLetter=='o'||firstLetter=='u'){
+    return word + "ay" ;
+}else{
+return lastLetter + firstLetter + "ay ";
+
+}  
 }
 
 
@@ -30,6 +52,6 @@ function wordToPigLatin(word){
 // Create the sentenceToPigLatin function that takes a sentence as a parameter
 	//Loops through all the words in the sentence and transforms each word
 	//It should return a transfromed sentance
-var text=$('input').val();
-var split=text.split(' ')
+
+
 
